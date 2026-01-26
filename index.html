@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TwinzCard</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TwinzCard</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<h1>TwinzCard</h1>
+<header>
+  <img src="images/logo.png" class="logo">
+  <button class="lang">AR / EN</button>
+</header>
 
-<!-- 1️⃣ اختيار البراند -->
-<select id="brand">
-  <option value="">Select Brand</option>
-  <option value="xbox">Xbox</option>
-  <option value="steam">Steam</option>
-  <option value="playstation">PlayStation</option>
-  <option value="googleplay">Google Play</option>
-  <option value="apple">Apple</option>
-</select>
-
-<!-- 2️⃣ اختيار الدولة -->
-<select id="region">
-  <option value="us">USA Account</option>
-  <option value="qa">Qatar Account</option>
-</select>
-
-<!-- 3️⃣ اختيار القيمة -->
-<select id="amount">
-  <option value="10">$10</option>
-  <option value="20">$20</option>
-  <option value="30">$30</option>
-  <option value="50">$50</option>
-</select>
-
-<!-- عرض البطاقة -->
-<div class="card-preview">
-  <img id="cardImg" src="" alt="">
+<div class="brands">
+  <div class="brand" onclick="go('steam')">
+    <img src="images/brands/steam.jpg">
+  </div>
+  <div class="brand" onclick="go('playstation')">
+    <img src="images/brands/playstation.jpg">
+  </div>
+  <div class="brand" onclick="go('apple')">
+    <img src="images/brands/apple.jpg">
+  </div>
+  <div class="brand" onclick="go('googleplay')">
+    <img src="images/brands/googleplay.jpg">
+  </div>
+  <div class="brand full" onclick="go('xbox')">
+    <img src="images/brands/xbox.jpg">
+  </div>
 </div>
 
-<!-- زر التحويل -->
-<button id="buyBtn">Buy Now</button>
+<footer>
+  <a href="pages/privacy.html">Privacy</a>
+  <a href="pages/terms.html">Terms</a>
+  <a href="pages/affiliate.html">Affiliate</a>
+</footer>
 
-<script src="js/app.js"></script>
+<script>
+function go(brand){
+  window.location.href = `card.html?brand=${brand}`;
+}
+</script>
+
 </body>
 </html>
