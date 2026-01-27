@@ -5,30 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TwinzCard</title>
 <link rel="stylesheet" href="css/style.css">
+<!-- If you publish to GitHub Pages under a repository path (example: https://<user>.github.io/Twinzcard/),
+     uncomment and set the correct base href below, e.g. <base href="/Twinzcard/"> -->
 </head>
 
 <body>
 
 <header>
-  <img src="images/logo.png" class="logo">
-  <button class="lang">AR / EN</button>
+  <img src="images/logo.png" class="logo" alt="TwinzCard logo">
+  <button class="lang" aria-label="Change language">AR / EN</button>
 </header>
 
 <div class="brands">
-  <div class="brands" onclick="go('steam')">
-    <img src="images/brands/steam.jpg">
+  <div class="brand" onclick="go('steam')" role="button" tabindex="0">
+    <img src="images/brands/steam.jpg" alt="Steam" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'200\'><rect fill=\'%23eee\' width=\'100%25\' height=\'100%25\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'20\'>No Image</text></svg>'">
   </div>
-  <div class="brands" onclick="go('playstation')">
-    <img src="images/brands/playstation.jpg">
+  <div class="brand" onclick="go('playstation')" role="button" tabindex="0">
+    <img src="images/brands/playstation.jpg" alt="PlayStation" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'200\'><rect fill=\'%23eee\' width=\'100%25\' height=\'100%25\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'20\'>No Image</text></svg>'">
   </div>
-  <div class="brands" onclick="go('apple')">
-    <img src="images/brands/apple.jpg">
+  <div class="brand" onclick="go('apple')" role="button" tabindex="0">
+    <img src="images/brands/apple.jpg" alt="Apple" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'200\'><rect fill=\'%23eee\' width=\'100%25\' height=\'100%25\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'20\'>No Image</text></svg>'">
   </div>
-  <div class="brands" onclick="go('googleplay')">
-    <img src="images/brands/googleplay.jpg">
+  <div class="brand" onclick="go('googleplay')" role="button" tabindex="0">
+    <img src="images/brands/googleplay.jpg" alt="Google Play" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'200\'><rect fill=\'%23eee\' width=\'100%25\' height=\'100%25\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'20\'>No Image</text></svg>'">
   </div>
-  <div class="brands full" onclick="go('xbox')">
-    <img src="images/brands/xbox.jpg">
+  <div class="brand full" onclick="go('xbox')" role="button" tabindex="0">
+    <img src="images/brands/xbox.jpg" alt="Xbox" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'200\'><rect fill=\'%23eee\' width=\'100%25\' height=\'100%25\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'20\'>No Image</text></svg>'">
   </div>
 </div>
 
@@ -42,6 +44,13 @@
 function go(brands){
   window.location.href = `card.html?brands=${brands}`;
 }
+// Make keyboard activation work for the clickable brand divs
+document.addEventListener('keydown', function(e){
+  if((e.key === 'Enter' || e.key === ' ') && document.activeElement && document.activeElement.classList.contains('brand')){
+    document.activeElement.click();
+    e.preventDefault();
+  }
+});
 </script>
 
 </body>
