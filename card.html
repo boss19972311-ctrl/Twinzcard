@@ -1,33 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>Buy Card</title>
-<link rel="stylesheet" href="css/style.css">
-<script src="js/lang.js" defer></script>
-<script src="js/app.js" defer></script>
+  <meta charset="UTF-8">
+  <title>البطاقات | TwinzCard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<button class="back" onclick="history.back()" data-i18n="back"></button>
+<header class="navbar">
+  <img src="images/logo.png" class="logo">
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="card.html">البطاقات</a>
+  </nav>
+</header>
 
-<img id="cardImg" class="card-img">
+<section class="cards" id="cardsContainer">
+  <!-- Cards loaded by JS -->
+</section>
 
-<select id="region">
-  <option value="us" data-i18n="usa"></option>
-  <option value="qa" data-i18n="qa"></option>
-</select>
-
-<select id="amount">
-  <option value="10">$10</option>
-  <option value="20">$20</option>
-  <option value="30">$30</option>
-  <option value="50">$50</option>
-</select>
-
-<p id="price"></p>
-
-<button class="main-btn" onclick="buy()" data-i18n="buy"></button>
-
+<script src="js/cards.js"></script>
 </body>
 </html>
